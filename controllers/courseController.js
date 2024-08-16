@@ -18,8 +18,9 @@ class CourseController {
     }
     static async addCourse(req, res) {
         try {
+            const { errors } = req.query;
             let data = await Category.findAll();
-            res.render('AddCourse', { data });
+            res.render('AddCourse', { data, errors });
         } catch (error) {
             res.send(error.message)
         }
@@ -34,19 +35,27 @@ class CourseController {
                 let data = await Category.findAll();
 
                 if (err) {
-                    console.error('Multer error:', err);
-                    return res.render('AddCourse', {
-                        msg: err,
-                        data
-                    });
+                    throw err
+                        // console.error('Multer error:', err);
+                        // return res.render('AddCourse', {
+                        //     msg: err,
+                        //     data
+                        // });
                 }
 
                 if (!req.file) {
-                    console.log('No file uploaded');
-                    return res.render('AddCourse', {
-                        msg: 'No file selected!',
+                    throw {
+                        name: "error_multer",
+                        errors: [{
+                            message: 'No file selected!'
+                        }],
                         data
-                    });
+                    }
+                    // console.log('No file uploaded');
+                    // return res.render('AddCourse', {
+                    //     msg: 'No file selected!',
+                    //     data
+                    // });
                 }
 
                 const { name, description, duration, categoryId } = req.body;
@@ -68,54 +77,64 @@ class CourseController {
                 res.redirect('/AllCourse');
 
             } catch (err) {
-                if (err.name === 'SequelizeValidationError') {
-                    let errors = err.errors.map(el => encodeURIComponent(el.message));
+                if (err.name === 'SequelizeValidationError' || err.name === "error_multer") {
+                    let errors = err.errors.map(el => el.message);
                     return res.redirect(`/addCourse?errors=${errors}`)
+                } else {
+                    console.error(err);
+                    res.send(err);
                 }
-                console.error(err);
-                res.send(err);
             }
         });
     }
     static async editCourse(req, res) {
         try {
             let { id } = req.params
+            let { errors } = req.query
             let data = await Course.findOne({
                 where: { id }
             })
             let category = await Category.findAll();
             // res.send(data)
-            res.render('EditFormCourse', { data, category })
+            res.render('EditFormCourse', { data, category, errors })
         } catch (error) {
             res.send(error.message)
         }
     }
     static async postEditForm(req, res) {
         upload(req, res, async(err) => {
+            const { id } = req.params
             try {
                 // res.send(req.body)
                 let data = await Category.findAll();
-                const { id } = req.params
                 if (err) {
-                    console.error('Multer error:', err);
-                    return res.render('AddCourse', {
-                        msg: err,
-                        data
-                    });
+                    throw err
+                        // console.error('Multer error:', err);
+                        // return res.render('AddCourse', {
+                        //     msg: err,
+                        //     data
+                        // });
                 }
 
                 if (!req.file) {
-                    console.log('No file uploaded');
-                    return res.render('AddCourse', {
-                        msg: 'No file selected!',
+                    throw {
+                        name: "error_multer",
+                        errors: [{
+                            message: 'No file selected!'
+                        }],
                         data
-                    });
+                    }
+                    // console.log('No file uploaded');
+                    // return res.render('AddCourse', {
+                    //     msg: 'No file selected!',
+                    //     data
+                    // });
                 }
 
                 const { name, description, duration, categoryId } = req.body;
                 // console.log(name)
                 let imgUrl = req.file.filename;
-                console.log('Request body:', req.body);
+                // console.log('Request body:', req.body);
                 let temp = imgUrl;
                 imgUrl = '../uploads/' + temp;
 
@@ -133,8 +152,8 @@ class CourseController {
                 res.redirect('/AllCourse');
 
             } catch (err) {
-                if (err.name === 'SequelizeValidationError') {
-                    let errors = err.errors.map((el) => encodeURIComponent(el.message));
+                if (err.name === 'SequelizeValidationError' || err.name === 'error_multer') {
+                    let errors = err.errors.map(el => el.message);
                     return res.redirect(`/editCourse/${id}?errors=${errors}`)
                 }
                 console.error(err);

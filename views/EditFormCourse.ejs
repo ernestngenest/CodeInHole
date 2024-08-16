@@ -10,38 +10,43 @@
 
 <body>
     <%- include('./partial/NavBarNormal.ejs') %>
-        <form class="max-w-sm mx-auto" action="/postAddCourse" method="post" enctype='multipart/form-data'>
-            <p class="text-gray-900 text-5xl dark:text-white my-6">Add Course</p>
-            <div class="mb-5">
-                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                <input type="name" id="name" name="name" value="<%= data.name %>" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                />
-            </div>
-            <div class="mb-5">
-                <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">description</label>
-                <input type="description" id="description" value="<%= data.description %>" name="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                />
-            </div>
-            <div class="mb-5">
-                <label for="imgUrl" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">imgUrl</label>
-                <input type="file" id="imgUrl" value="<%= data.imgUrl %>" name="imgUrl" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                />
-            </div>
-            </div>
-            <div class="mb-5">
-                <label for="duration" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">duration</label>
-                <input type="number" id="duration" value="<%= data.duration %>" name="duration" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                />
-            </div>
-            <label for="categoryId" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Category</label>
-            <select id="categoryId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                name="categoryId">
+        <form class="max-w-sm mx-auto" action="/editCourse/<%= data.id %>" method="post" enctype='multipart/form-data'>
+            <% if (errors) { %>
+                <p style="color:red">
+                    <%= errors %>
+                </p>
+                <% } %>
+                    <p class="text-gray-900 text-5xl dark:text-white my-6">Edit Course</p>
+                    <div class="mb-5">
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                        <input type="name" id="name" name="name" value="<%= data.name %>" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        />
+                    </div>
+                    <div class="mb-5">
+                        <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">description</label>
+                        <input type="description" id="description" value="<%= data.description %>" name="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        />
+                    </div>
+                    <div class="mb-5">
+                        <label for="imgUrl" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">imgUrl</label>
+                        <input type="file" id="imgUrl" value="<%= data.imgUrl %>" name="imgUrl" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        />
+                    </div>
+                    </div>
+                    <div class="mb-5">
+                        <label for="duration" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">duration</label>
+                        <input type="number" id="duration" value="<%= data.duration %>" name="duration" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        />
+                    </div>
+                    <label for="categoryId" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Category</label>
+                    <select id="categoryId" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        name="categoryId">
             <option disabled>Choose a Category</option>
             <% category.forEach(element => { %>
                 <option value="<%= element.id %>" <%= element.id === element.categoryId? 'selected' : '' %>><%= element.name %></option>
             <% }) %>
         </select>
-            <button type="submit" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 my-3">submit</button>
+                    <button type="submit" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 my-3">submit</button>
         </form>
 </body>
 

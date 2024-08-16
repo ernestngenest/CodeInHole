@@ -1,5 +1,5 @@
 const { Op } = require('sequelize')
-const { User, UserCourse, Course } = require('../models')
+const { User, UserCourse, Course, Profile } = require('../models')
 var bcrypt = require('bcryptjs');
 class UserController {
     static async showLoginForm(req, res) {
@@ -58,7 +58,13 @@ class UserController {
             if (valid) {
                 res.redirect(`/register?error=email ${email} sudah ada`)
             } else {
+
                 let data = await User.create({ email, password, role })
+
+                await Profile.create({
+                    userId: data.id
+                })
+
                 if (data) {
                     req.session.userId = data.id
                     req.session.role = data.role
