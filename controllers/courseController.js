@@ -68,7 +68,11 @@ class CourseController {
                 res.redirect('/AllCourse');
 
             } catch (err) {
-                console.error('Error in postAddCourse:', err);
+                if (err.name === 'SequelizeValidationError') {
+                    let errors = err.errors.map(el => encodeURIComponent(el.message));
+                    return res.redirect(`/addCourse?errors=${errors}`)
+                }
+                console.error(err);
                 res.send(err);
             }
         });
@@ -129,7 +133,11 @@ class CourseController {
                 res.redirect('/AllCourse');
 
             } catch (err) {
-                console.error('Error in postAddCourse:', err);
+                if (err.name === 'SequelizeValidationError') {
+                    let errors = err.errors.map((el) => encodeURIComponent(el.message));
+                    return res.redirect(`/editCourse/${id}?errors=${errors}`)
+                }
+                console.error(err);
                 res.send(err);
             }
         });

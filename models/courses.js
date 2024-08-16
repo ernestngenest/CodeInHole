@@ -38,10 +38,54 @@ module.exports = (sequelize, DataTypes) => {
         }
     }
     Course.init({
-        name: DataTypes.STRING,
-        description: DataTypes.STRING,
-        duration: DataTypes.INTEGER,
-        imgUrl: DataTypes.STRING,
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: {
+                    msg: 'Nama Course tidak boleh kosong'
+                },
+                notNull: {
+                    msg: 'Nama Course tidak boleh kosong'
+                }
+            }
+        },
+        description: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: {
+                    msg: 'Description tidak boleh kosong'
+                },
+                notNull: {
+                    msg: 'Description tidak boleh kosong'
+                }
+            }
+        },
+        duration: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            validate: {
+                notEmpty: {
+                    msg: 'Duration tidak boleh kosong'
+                },
+                notNull: {
+                    msg: 'Duration tidak boleh kosong'
+                }
+            }
+        },
+        imgUrl: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: {
+                    msg: 'ImgUrl tidak boleh kosong'
+                },
+                notNull: {
+                    msg: 'ImgUrl tidak boleh kosong'
+                }
+            }
+        },
         categoryId: {
             type: DataTypes.INTEGER,
             references: {

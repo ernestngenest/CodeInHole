@@ -1,7 +1,6 @@
 const express = require('express');
 const CourseController = require('../controllers/courseController');
 const UserController = require('../controllers/userControllers');
-const usercourses = require('../models/usercourses');
 const ProfileController = require('../controllers/profileController');
 const router = express.Router()
 
