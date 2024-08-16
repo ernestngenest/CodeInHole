@@ -6,6 +6,7 @@ const router = express.Router()
 
 
 
+router.get('/', CourseController.home)
 
 router.get('/login', UserController.showLoginForm)
 router.post('/login', UserController.postLoginForm)
@@ -33,7 +34,6 @@ router.get('/getMyCourse', UserController.getMyCourse)
 //     }
 // })
 
-router.get('/', CourseController.home)
 router.get('/allCourse', CourseController.getAllCourse)
 router.get('/addCourse', CourseController.addCourse)
 router.post('/postAddCourse', CourseController.postAddCourse)
