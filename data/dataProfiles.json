@@ -1,0 +1,26 @@
+[{
+        "id": 1,
+        "profileImg": "https://picsum.photos/200/300",
+        "userId": 1
+    },
+    {
+        "id": 2,
+        "profileImg": "https://picsum.photos/200/300",
+        "userId": 2
+    },
+    {
+        "id": 3,
+        "profileImg": "https://picsum.photos/200/300",
+        "userId": 3
+    },
+    {
+        "id": 4,
+        "profileImg": "https://picsum.photos/200/300",
+        "userId": 4
+    },
+    {
+        "id": 5,
+        "profileImg": "https://picsum.photos/200/300",
+        "userId": 5
+    }
+]

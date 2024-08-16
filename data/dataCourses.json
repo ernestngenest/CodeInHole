@@ -1,0 +1,41 @@
+[{
+        "id": 1,
+        "name": "Intro to JavaScript",
+        "description": "Learn the basics of JavaScript.",
+        "duration": 30,
+        "categoryId": 1,
+        "imgUrl": "https://picsum.photos/200/300"
+    },
+    {
+        "id": 2,
+        "name": "Advanced Data Science",
+        "description": "Deep dive into Data Science techniques.",
+        "duration": 45,
+        "categoryId": 2,
+        "imgUrl": "https://picsum.photos/200/300"
+    },
+    {
+        "id": 3,
+        "name": "React Native for Beginners",
+        "description": "Build mobile apps using React Native.",
+        "duration": 40,
+        "categoryId": 3,
+        "imgUrl": "https://picsum.photos/200/300"
+    },
+    {
+        "id": 4,
+        "name": "Ethical Hacking 101",
+        "description": "Introduction to cybersecurity and ethical hacking.",
+        "duration": 50,
+        "categoryId": 4,
+        "imgUrl": "https://picsum.photos/200/300"
+    },
+    {
+        "id": 5,
+        "name": "Full-Stack Web Development",
+        "description": "Become a full-stack web developer with Node.js and React.",
+        "duration": 60,
+        "categoryId": 1,
+        "imgUrl": "https://picsum.photos/200/300"
+    }
+]

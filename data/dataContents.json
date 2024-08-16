@@ -1,0 +1,43 @@
+[{
+        "id": 1,
+        "title": "JavaScript Basics",
+        "Url": "https://example.com/javascript-basics",
+        "courseId": 1
+    },
+    {
+        "id": 2,
+        "title": "Advanced Data Analysis",
+        "Url": "https://example.com/advanced-data-analysis",
+        "courseId": 2
+    },
+    {
+        "id": 3,
+        "title": "React Native Setup",
+        "Url": "https://example.com/react-native-setup",
+        "courseId": 3
+    },
+    {
+        "id": 4,
+        "title": "Introduction to Ethical Hacking",
+        "Url": "https://example.com/introduction-to-ethical-hacking",
+        "courseId": 4
+    },
+    {
+        "id": 5,
+        "title": "Building a Full-Stack Application",
+        "Url": "https://example.com/building-fullstack-application",
+        "courseId": 5
+    },
+    {
+        "id": 6,
+        "title": "JavaScript Advanced Topics",
+        "Url": "https://example.com/javascript-advanced-topics",
+        "courseId": 1
+    },
+    {
+        "id": 7,
+        "title": "React Native Components",
+        "Url": "https://example.com/react-native-components",
+        "courseId": 3
+    }
+]

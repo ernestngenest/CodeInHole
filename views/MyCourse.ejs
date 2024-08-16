@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('./partial/FlowBite.ejs') %>
+        <title>All Course</title>
+</head>
+
+<body>
+    <%- include('./partial/NavBarNormal.ejs') %>
+        <div class="container mx-auto px-4">
+            <p class="text-gray-900 text-8xl dark:text-white my-5">All Course</p>
+            <form action="/allCourse" method="get">
+                <div class="relative mb-6">
+                    <input type="text" id="search" name="search" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                        placeholder=" " required />
+                    <label for="search" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4">search...</label>
+                </div>
+                <button type="submit" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">submit</button>
+            </form>
+            <div class="grid md:grid-cols-2 gap-4">
+                <% data.Courses.forEach(element => { %>
+                    <div class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 relative">
+                        <img class="object-cover w-full rounded-t-lg h-67 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="<%= element.imgUrl %>" alt="">
+                        <div class="flex flex-col justify-between p-4 leading-normal w-full">
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                <%= element.name %>
+                            </h5>
+                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                <%= element.description %>
+                            </p>
+                            <div class="flex justify-end mt-auto">
+                                <button class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mt-4 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800 absolute bottom-4 right-4">See detail >></button>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+        </div>
+</body>
+
+
+</html>

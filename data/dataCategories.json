@@ -1,0 +1,17 @@
+[{
+        "id": 1,
+        "name": "Web Development"
+    },
+    {
+        "id": 2,
+        "name": "Data Science"
+    },
+    {
+        "id": 3,
+        "name": "Mobile Development"
+    },
+    {
+        "id": 4,
+        "name": "Cybersecurity"
+    }
+]

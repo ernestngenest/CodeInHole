@@ -1,0 +1,83 @@
+[
+    {
+        "id": 1,
+        "name": "Intro to JavaScript",
+        "description": "Learn the basics of JavaScript.",
+        "duration": 30,
+        "imgUrl": "https://picsum.photos/200/300",
+        "categoryId": 1,
+        "createdAt": "2024-08-15T10:35:17.699Z",
+        "updatedAt": "2024-08-15T10:35:17.699Z"
+    },
+    {
+        "id": 2,
+        "name": "Advanced Data Science",
+        "description": "Deep dive into Data Science techniques.",
+        "duration": 45,
+        "imgUrl": "https://picsum.photos/200/300",
+        "categoryId": 2,
+        "createdAt": "2024-08-15T10:35:17.699Z",
+        "updatedAt": "2024-08-15T10:35:17.699Z"
+    },
+    {
+        "id": 3,
+        "name": "React Native for Beginners",
+        "description": "Build mobile apps using React Native.",
+        "duration": 40,
+        "imgUrl": "https://picsum.photos/200/300",
+        "categoryId": 3,
+        "createdAt": "2024-08-15T10:35:17.699Z",
+        "updatedAt": "2024-08-15T10:35:17.699Z"
+    },
+    {
+        "id": 4,
+        "name": "Ethical Hacking 101",
+        "description": "Introduction to cybersecurity and ethical hacking.",
+        "duration": 50,
+        "imgUrl": "https://picsum.photos/200/300",
+        "categoryId": 4,
+        "createdAt": "2024-08-15T10:35:17.699Z",
+        "updatedAt": "2024-08-15T10:35:17.699Z"
+    },
+    {
+        "id": 5,
+        "name": "Full-Stack Web Development",
+        "description": "Become a full-stack web developer with Node.js and React.",
+        "duration": 60,
+        "imgUrl": "https://picsum.photos/200/300",
+        "categoryId": 1,
+        "createdAt": "2024-08-15T10:35:17.699Z",
+        "updatedAt": "2024-08-15T10:35:17.699Z"
+    }
+]
+
+
+
+================
+
+{
+    "id": 7,
+    "email": "ernestprabowo@gmail.com",
+    "password": "$2a$10$ueC2QDpoiFtyXlv.p6ClVOYp3TTo.nl0WbWqANG2WG2BN7WRxmf4a",
+    "role": "admin",
+    "createdAt": "2024-08-15T14:04:35.787Z",
+    "updatedAt": "2024-08-15T14:04:35.787Z",
+    "Courses": [
+        {
+            "id": 4,
+            "name": "Ethical Hacking 101",
+            "description": "Introduction to cybersecurity and ethical hacking.",
+            "duration": 50,
+            "imgUrl": "https://picsum.photos/200/300",
+            "categoryId": 4,
+            "createdAt": "2024-08-15T10:35:17.699Z",
+            "updatedAt": "2024-08-15T10:35:17.699Z",
+            "UserCourse": {
+                "userId": 7,
+                "courseId": 4,
+                "createdAt": "2024-08-15T10:35:17.706Z",
+                "updatedAt": "2024-08-15T10:35:17.706Z"
+            }
+        }
+    ]
+}
